@@ -78,7 +78,9 @@ class MainViewModel(val app: Application) : AndroidViewModel(app) {
             _connectivityState.value = getConnectivityState()
             Wearable.getCapabilityClient(app).addListener(
                 {
-                    updateConnectivityState()
+                    viewModelScope.launch {
+                        _connectivityState.value = getConnectivityState()
+                    }
                 },
                 "dnd_sync"
             )

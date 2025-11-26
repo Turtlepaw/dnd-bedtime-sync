@@ -11,6 +11,7 @@ import com.google.android.gms.wearable.WearableListenerService
 import it.silleellie.dndsync.shared.PreferenceKeys
 import it.silleellie.dndsync.shared.WearSignal
 import org.apache.commons.lang3.SerializationUtils
+import androidx.core.net.toUri
 
 class DNDSyncListenerService : WearableListenerService() {
     override fun onMessageReceived(messageEvent: MessageEvent) {
@@ -18,7 +19,7 @@ class DNDSyncListenerService : WearableListenerService() {
 
         if (messageEvent.path.equals(URL_OPEN_PATH, ignoreCase = true)) {
             val url = "https://github.com/Silleellie/dnd-bedtime-sync#watch"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+            val intent = Intent(Intent.ACTION_VIEW, url.toUri()).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             startActivity(intent)

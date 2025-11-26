@@ -21,18 +21,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        // Set the theme
-        setTheme(R.style.Theme_DNDSync) // Use your custom theme here
 
         setContent {
             AppTheme {
                 MainScreen(this)
             }
         }
-
-        WindowCompat.setDecorFitsSystemWindows(
-            window,
-            true
-        )
     }
 }

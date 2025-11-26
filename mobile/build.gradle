@@ -7,7 +7,7 @@ plugins {
 android {
     signingConfigs {
         debugging {
-            storeFile file('E:\\debug.keystore')
+            storeFile file('../debug.keystore')
             keyAlias 'androiddebugkey'
             storePassword 'android'
             keyPassword 'android'
@@ -31,6 +31,7 @@ android {
             signingConfig signingConfigs.debugging
         }
         release {
+            signingConfig signingConfigs.debugging
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

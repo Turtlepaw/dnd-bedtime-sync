@@ -37,6 +37,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_20
+        targetCompatibility JavaVersion.VERSION_20
+    }
     kotlinOptions {
         jvmTarget = '20'
     }
